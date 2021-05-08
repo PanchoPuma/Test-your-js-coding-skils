@@ -51,7 +51,7 @@ var answer = document.querySelector ("#answer")
     //get started and circle through questions
 
     var gettingStarted = function (initialIndex) {
-       
+       if (initialIndex <= 4 ) {
             //clear previous html
             mainContent.innerHTML = ""
             //adding content
@@ -60,7 +60,6 @@ var answer = document.querySelector ("#answer")
                 questionTitle.id = "question";
                 questionTitle.innerHTML = "<h1 class='center'>" + questions[initialIndex].title+ "</h1>" 
                 // add ul
-                debugger;
                 var questionUl = document.createElement ("ul");
                 //add li elements
                 var questionLi0 = document.createElement ("li");
@@ -90,15 +89,17 @@ var answer = document.querySelector ("#answer")
                 questionUl.addEventListener("click", (answerCompare));
 
                 //add next up function 
-
-            
+            }
+            else {
+                mainContent.innerHTML = ""
+                answer.textContent = "the end"
+            }
         }
 
     //Compare and add answer 
               // !!!!!!START HERE!!!!!!! 
-                //find a way to  select the correct option using the IDs and move on use switch to check answers posibly 
-                // find a way to display answer. If idexArray = 0 display nothing  (use switch) maybe try listItem.addEventListener("click", (compare));
-                //find a way to run timer 
+                //find a way to run timer and account for scores
+                // create imput after else to capture information and then
                 //develop store high scores
 
         var answerCompare = function (event) {
@@ -113,7 +114,7 @@ var answer = document.querySelector ("#answer")
                     answer.textContent = "Wrong! The correct answer is:  " + questions[initialIndex].correctAnswer;
                 }
                 console.log(initialIndex)
-                initialIndex++
+               initialIndex++
                 gettingStarted (initialIndex);
 
 
@@ -159,7 +160,12 @@ start.addEventListener("click", clearHtmlandStart);
 
 //// tests draft 
 
-
+// if (initialIndex <= 3){
+//     initialIndex++
+// }else if (initialIndex >= 4) {
+// break
+// console.log ("pausing")
+// }
 
 // FIRST ANSWER COMPARE  var answerCompare = function () {
             // var questionAnswer = document.createElement ("div");
