@@ -23,8 +23,16 @@ var questions = [
 ];
 
 // initial variables 
+var score = 0
+var indexQuestion = 0
+var penalty = 10
 
 //inital document selectors 
+var questiondiv = document.querySelector("#question");
+var optionsdiv = document.querySelector("#options");
+var pagediv = document.querySelector("#page-content");
+var start = document.querySelector("#btn");
+var timer = document.querySelector("#timer");
 
 // variables as the quiz progresses
 
