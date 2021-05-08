@@ -24,7 +24,7 @@ var questions = [
 
 // initial variables 
 var score = 0
-var indexQuestion = 0
+var idexQuestionArray = 0
 var penalty = 10
 
 //inital document selectors 
@@ -38,15 +38,26 @@ var timer = document.querySelector("#timer");
 
 //functions
 
-    // clear page function 
-    var clearHtml = function () {
-        pagediv.innerHTML = ""
-        }
     //get started and circle through questions
+
+    var gettingStarted = function () {
+                
+        var questionTitle = document.createElement ("div");
+        questionTitle.id = "question";
+        questionTitle.innerHTML = "<h1 class='center'> something</h1>"
+        pagediv.appendChild(questionTitle);
+
+    };
 
     //compare answers
 
     //time's up 
+
+    // clear page function 
+    var clearHtml = function () {
+        pagediv.innerHTML = ""
+        gettingStarted ();
+        };
 
 //local storage of data
 
