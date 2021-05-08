@@ -172,23 +172,53 @@ var answer = document.querySelector ("#answer")
         pagediv.appendChild(resultsInput);
         pagediv.appendChild(resultsSubmit);
 
-        resultsSubmit.addEventListener("click", saveDetails (resultsInput));
+        SaveDetails ();
+
+      
+
+       // resultsSubmit.addEventListener("click", SaveDetails ());
+        //resultsSubmit.addEventListener("click", storeDetails ());
     }
 
     // !!!!!!START HERE!!!!!!! 
      // store input values correctly and once submited 
       //go to store high scores. html
 
-// //local storage of data
-var saveDetails = function (){
-    //var saveInitials = JSON.stringify(resultsInput.value);
-    //var saveInitials = resultsInput.value;
-        if (resultsInput === null){
-            window.alert("Please enter your Initials")
-        } else {
-            localStorage.setItem ("Initials", resultsInput )
-        }
+//local storage of data
+
+var SaveDetails = function () {
+    resultsSubmit.addEventListener("click", function(){
+    window.alert("Testing");
     }
+    )}
+
+
+
+
+
+// var storeDetails = function (){
+//     var saveInitials = resultsInput.value;
+//     debugger;
+//         if (saveInitials === null){
+//             window.alert("Please enter your Initials");
+//             debugger;
+//         } else {
+//             // var finalResult = {
+//             //     userInitials: "",
+//             //     finalSscore: score,
+//             // }
+//             //console.log (finalResult);
+//             var allFinalScores = localStorage.getItem ("allFinalScores");
+//             if (allFinalScores === null) {
+//                 allFinalScores =[];
+//             } else {
+//                 allFinalScores = JSON.parse(allFinalScores);
+//             }
+//             allFinalScores.push (saveInitials);
+//             var finalNewScore = JSON.stringify(allFinalScores)
+//             localStorage.setItem ("Final Scores", finalNewScore )
+//         }
+//     }
 
 //general event listeners 
 start.addEventListener("click", clearHtmlandStart);
