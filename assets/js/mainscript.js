@@ -34,7 +34,7 @@ var questiondiv = document.querySelector("#question");
 var optionsdiv = document.querySelector("#options");
 var pagediv = document.querySelector("#page-content");
 var start = document.querySelector("#btn");
-var timer = document.querySelector("#timer");
+var displayTimer = document.querySelector("#timer");
 var mainContent = document.querySelector ("#main-content")
 var answer = document.querySelector ("#answer")
 
@@ -128,6 +128,7 @@ var startTimer = function(){
         if (time >= 1) {
         time = time -1
         console.log (time)
+        displayTimer.textContent = "Timer: " + time
         } else {
             if (time <= 0)
              clearInterval(startTimer)
