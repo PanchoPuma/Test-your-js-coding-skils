@@ -24,7 +24,7 @@ var questions = [
 
 // initial variables 
 var score = 0
-var idexQuestionArray = 0
+var idexArray = 0
 var penalty = 10
 
 //inital document selectors 
@@ -33,6 +33,8 @@ var optionsdiv = document.querySelector("#options");
 var pagediv = document.querySelector("#page-content");
 var start = document.querySelector("#btn");
 var timer = document.querySelector("#timer");
+var mainContent = document.querySelector ("#main-content")
+var answer = document.querySelector ("#answer")
 
 // variables as the quiz progresses
 
@@ -40,7 +42,7 @@ var timer = document.querySelector("#timer");
 
     // clear page function 
     var clearHtmlandStart = function () {
-        pagediv.innerHTML = ""
+        mainContent.innerHTML = ""
         //insert timer ability
         gettingStarted ();
         };
@@ -49,54 +51,69 @@ var timer = document.querySelector("#timer");
 
     var gettingStarted = function () {
 
-        for (var i = 0; i < questions.length; i++) {
+        for (idexArray; idexArray < questions.length; idexArray++) {
             //clear previous html
-            pagediv.innerHTML = ""
+            mainContent.innerHTML = ""
             //adding content
                 //add title
                 var questionTitle = document.createElement ("div");
                 questionTitle.id = "question";
-                questionTitle.innerHTML = "<h1 class='center'>" + questions[i].title + "</h1>" 
+                questionTitle.innerHTML = "<h1 class='center'>" + questions[idexArray].title + "</h1>" 
                 // add ul
                 var questionUl = document.createElement ("ul");
                 //add li elements
                 var questionLi0 = document.createElement ("li");
                 questionLi0.id = "0";
-                questionLi0.textContent = questions[i].choices[0]
+                questionLi0.textContent = questions[idexArray].choices[0]
                 var questionLi1 = document.createElement ("li");
                 questionLi1.id = "1";
-                questionLi1.textContent = questions[i].choices[1]
+                questionLi1.textContent = questions[idexArray].choices[1]
                 var questionLi2 = document.createElement ("li");
                 questionLi2.id = "2";
-                questionLi2.textContent = questions[i].choices[2]
+                questionLi2.textContent = questions[idexArray].choices[2]
                 var questionLi3 = document.createElement ("li");
                 questionLi3.id = "3";
-                questionLi3.textContent = questions[i].choices[3]
-
-                
-                //add answer 
-                var questionAnswer = document.createElement ("div");
-                questionAnswer.id = "answer";
-                questionAnswer.innerHTML = ""
+                questionLi3.textContent = questions[idexArray].choices[3]
             
                 //append results
-                pagediv.appendChild(questionTitle);  
+               // mainContent.appendChild(pagediv);
+                mainContent.appendChild(questionTitle);  
                 questionTitle.appendChild(questionUl);
                 questionUl.appendChild(questionLi0);  
                 questionUl.appendChild(questionLi1);
                 questionUl.appendChild(questionLi2);
                 questionUl.appendChild(questionLi3);  
-                pagediv.appendChild(questionAnswer);
                 
-                debugger; // !!!!!!START HERE!!!!!!! 
+                debugger; 
+
+                answerCompare ();
+
+            }
+        };
+
+    //Compare and add answer 
+              // !!!!!!START HERE!!!!!!! 
                 //find a way to  select the correct option using the IDs and move on use switch to check answers posibly 
-                // find a way to display answer. If i = 0 display nothing  (use switch)
+                // find a way to display answer. If idexArray = 0 display nothing  (use switch) maybe try listItem.addEventListener("click", (compare));
                 //find a way to run timer 
                 //develop store high scores
-                }
-    };
 
-    //compare answers
+        var answerCompare = function () {
+            //answer.innerHTML = ""
+            // function compare(event) {
+             //var element = event.target;
+            //if (element.matches("li")) {
+            var questionAnswer = document.createElement ("div");
+            questionAnswer.id = "answer";
+            questionAnswer.innerHTML = "sample answer"
+            pagediv.appendChild(questionAnswer);
+            console.log(idexArray)
+
+             //display answer
+             //ifarrayindex = 0 then display nothing
+            //otherwise display the previous result
+
+        };
 
     //time's up 
 
@@ -139,3 +156,13 @@ start.addEventListener("click", clearHtmlandStart);
 //     pagediv.appendChild(questionTitle);   
 //     }
 // };
+
+
+// FIRST ANSWER COMPARE  var answerCompare = function () {
+            // var questionAnswer = document.createElement ("div");
+            // questionAnswer.id = "answer";
+            // questionAnswer.innerHTML = "sample answer"
+            // pagediv.appendChild(questionAnswer);
+            // console.log(idexArray)
+
+            // };
