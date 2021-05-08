@@ -24,7 +24,7 @@ var questions = [
 
 // initial variables 
 var score = 0
-var idexArray = 0
+var initialIndex = 0
 var penalty = 10
 var pointsEarned = 10
 
@@ -50,17 +50,17 @@ var answer = document.querySelector ("#answer")
 
     //get started and circle through questions
 
-    var gettingStarted = function () {
-
-        for (idexArray; idexArray < questions.length; idexArray++) {
+    var gettingStarted = function (initialIndex) {
+        var idexArray = 0
             //clear previous html
             mainContent.innerHTML = ""
             //adding content
                 //add title
                 var questionTitle = document.createElement ("div");
                 questionTitle.id = "question";
-                questionTitle.innerHTML = "<h1 class='center'>" + questions[idexArray].title + "</h1>" 
+                questionTitle.innerHTML = "<h1 class='center'>" + questions[idexArray].title+ "</h1>" 
                 // add ul
+                debugger;
                 var questionUl = document.createElement ("ul");
                 //add li elements
                 var questionLi0 = document.createElement ("li");
@@ -91,8 +91,8 @@ var answer = document.querySelector ("#answer")
 
                 //add next up function 
 
-            }
-        };
+            
+        }
 
     //Compare and add answer 
               // !!!!!!START HERE!!!!!!! 
@@ -102,22 +102,27 @@ var answer = document.querySelector ("#answer")
                 //develop store high scores
 
         var answerCompare = function (event) {
-            //answer.innerHTML = """
             var compare = event.target;
+            // var questionAnswer = document.createElement ("div");
+            //     questionAnswer.id = "answer"
             if (compare.matches("li")) {
-                var questionAnswer = document.createElement ("div");
-                questionAnswer.id = "answer"
+                // var questionAnswer = document.createElement ("div");
+                // questionAnswer.id = "answer"
+                // questionAnswer.innerHTML = ""
 
-                if (compare.textContent == questions[0].correctAnswer) {
+                if (compare.textContent == questions[initialIndex].correctAnswer) {
                     //score = score + pointsEarned;
-                    questionAnswer.textContent = "Correct! The answer is:  " + questions[0].correctAnswer;
+                    answer.textContent = "Correct! The answer is:  " + questions[initialIndex].correctAnswer;
                 } else {
                     // Will deduct -10 seconds off time for wrong answers
                     //timer = timer - penalty;
-                    questionAnswer.textContent = "Wrong! The correct answer is:  " + questions[0].correctAnswer;
+                    answer.textContent = "Wrong! The correct answer is:  " + questions[initialIndex].correctAnswer;
                 }
-                pagediv.appendChild(questionAnswer);
-                console.log(idexArray)
+                //pagediv.appendChild(questionAnswer);
+                console.log(initialIndex)
+                //initialIndex++
+                gettingStarted (initialIndex);
+
 
                 //display answer
              //ifarrayindex = 0 then display nothing
@@ -161,23 +166,6 @@ start.addEventListener("click", clearHtmlandStart);
 
 //// tests draft 
 
-// get started function original
-// var questionTitle = document.createElement ("div");
-        // questionTitle.id = "question";
-        // questionTitle.innerHTML = "<h1 class='center'>" + questions[idexQuestionArray].title + "</h1>";
-        // pagediv.appendChild(questionTitle);
-  //  };
-
-// get started function with for 
-// var gettingStarted = function () {
-        
-//     for (var i = 0; i < questions.length; i++) {
-//     var questionTitle = document.createElement ("div");
-//     questionTitle.id = "question";
-//     questionTitle.innerHTML = "<h1 class='center'>" + questions[i].title + "</h1>";
-//     pagediv.appendChild(questionTitle);   
-//     }
-// };
 
 
 // FIRST ANSWER COMPARE  var answerCompare = function () {
@@ -189,12 +177,48 @@ start.addEventListener("click", clearHtmlandStart);
 
             // };
 
-            // var answerCompare = function (event) {
-            //     //answer.innerHTML = """
-            //     var compare = event.target;
-            //     if (compare.matches("li")) {
-            //         var questionAnswer = document.createElement ("div");
-            //         questionAnswer.id = "answer";
-            //         questionAnswer.innerHTML = "sample answer"
-            //         pagediv.appendChild(questionAnswer);
-            //         console.log(idexArray)
+
+
+
+
+//initial fuction
+            // var gettingStarted = function () {
+
+            //     for (idexArray; idexArray < questions.length; idexArray++) {
+            //         //clear previous html
+            //         mainContent.innerHTML = ""
+            //         //adding content
+            //             //add title
+            //             var questionTitle = document.createElement ("div");
+            //             questionTitle.id = "question";
+            //             questionTitle.innerHTML = "<h1 class='center'>" + questions[idexArray].title + "</h1>" 
+            //             // add ul
+            //             var questionUl = document.createElement ("ul");
+            //             //add li elements
+            //             var questionLi0 = document.createElement ("li");
+            //             questionLi0.id = "0";
+            //             questionLi0.textContent = questions[idexArray].choices[0]
+            //             var questionLi1 = document.createElement ("li");
+            //             questionLi1.id = "1";
+            //             questionLi1.textContent = questions[idexArray].choices[1]
+            //             var questionLi2 = document.createElement ("li");
+            //             questionLi2.id = "2";
+            //             questionLi2.textContent = questions[idexArray].choices[2]
+            //             var questionLi3 = document.createElement ("li");
+            //             questionLi3.id = "3";
+            //             questionLi3.textContent = questions[idexArray].choices[3]
+                    
+            //             //append results
+            //            // mainContent.appendChild(pagediv);
+            //             mainContent.appendChild(questionTitle);  
+            //             questionTitle.appendChild(questionUl);
+            //             questionUl.appendChild(questionLi0);  
+            //             questionUl.appendChild(questionLi1);
+            //             questionUl.appendChild(questionLi2);
+            //             questionUl.appendChild(questionLi3);  
+                        
+            //             debugger; 
+        
+            //             questionUl.addEventListener("click", (answerCompare));
+        
+            //             //add next up function 
