@@ -115,12 +115,6 @@ var answer = document.querySelector ("#answer")
 
         };
 
-// !!!!!!START HERE!!!!!!! 
-     //find a way to account for scores
-     // perhaps use if timer = 0 then run getting started with value =4
-     // create imput after else to capture information and then
-      //develop store high scores
-
     //timer 
 
     var startTimer = function(){
@@ -178,28 +172,23 @@ var answer = document.querySelector ("#answer")
         pagediv.appendChild(resultsInput);
         pagediv.appendChild(resultsSubmit);
 
-        resultsSubmit.addEventListener("click", saveDetails);
-
-        // resultsSubmit.addEventListener("click", saveInitials);
-
-        // //local storage of data
-        // var saveInitials = resultsInput.value;
-        // if (!saveInitials){
-        //     window.alert("Please enter your Initials")
-        // } else {
-        //     localStorage.setItem ("Initials", saveInitials )
-        // }
+        resultsSubmit.addEventListener("click", saveDetails (resultsInput));
     }
 
+    // !!!!!!START HERE!!!!!!! 
+     // store input values correctly and once submited 
+      //go to store high scores. html
+
 // //local storage of data
-var saveDetails = function(resultsInput){
-var saveInitials = JSON.stringify(resultsInput.value);
-if (saveInitials === null){
-    window.alert("Please enter your Initials")
-} else {
-    localStorage.setItem ("Initials", saveInitials )
-}
-}
+var saveDetails = function (){
+    //var saveInitials = JSON.stringify(resultsInput.value);
+    //var saveInitials = resultsInput.value;
+        if (resultsInput === null){
+            window.alert("Please enter your Initials")
+        } else {
+            localStorage.setItem ("Initials", resultsInput )
+        }
+    }
 
 //general event listeners 
 start.addEventListener("click", clearHtmlandStart);
