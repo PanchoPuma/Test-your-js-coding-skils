@@ -146,17 +146,62 @@ var answer = document.querySelector ("#answer")
 
     var results = function () {
         mainContent.innerHTML = ""
-                var allDone = document.createElement ("div");
-                allDone.id = "question";
-                allDone.innerHTML = "<h1 class='center'> All Done! </h1>" 
-                mainContent.appendChild(allDone);
-                answer.textContent = "Your final Score is: " + score
+        var allDone = document.createElement ("div");
+        allDone.id = "question";
+        allDone.innerHTML = "<h1 class='center'> All Done! </h1>" 
+
+        //score
+        answer.textContent = "Your final Score is: " + score
+
+        // Results Label
+        var resultsLabel = document.createElement("label");
+        resultsLabel.id = "resultsLabel";
+        resultsLabel.textContent = "Enter your initials: ";
+
+        // input 
+
+        var resultsInput = document.createElement("input");
+        resultsInput.id = "resultsInput";
+        resultsInput.setAttribute ("type", "Text")
+        resultsInput.textContent = " ";
+
+        //submit
+
+        var resultsSubmit = document.createElement("button");
+        resultsSubmit.id = "resultsSubmit";
+        resultsSubmit.setAttribute ("type", "submit")
+        resultsSubmit.textContent = "Submit";
+
+        //append results
+        mainContent.appendChild(allDone);
+        pagediv.appendChild(resultsLabel);
+        pagediv.appendChild(resultsInput);
+        pagediv.appendChild(resultsSubmit);
+
+        resultsSubmit.addEventListener("click", saveDetails);
+
+        // resultsSubmit.addEventListener("click", saveInitials);
+
+        // //local storage of data
+        // var saveInitials = resultsInput.value;
+        // if (!saveInitials){
+        //     window.alert("Please enter your Initials")
+        // } else {
+        //     localStorage.setItem ("Initials", saveInitials )
+        // }
     }
 
-//local storage of data
+// //local storage of data
+var saveDetails = function(resultsInput){
+var saveInitials = JSON.stringify(resultsInput.value);
+if (saveInitials === null){
+    window.alert("Please enter your Initials")
+} else {
+    localStorage.setItem ("Initials", saveInitials )
+}
+}
 
-
-//event listeners 
+//general event listeners 
 start.addEventListener("click", clearHtmlandStart);
 start.addEventListener("click", startTimer);
 
