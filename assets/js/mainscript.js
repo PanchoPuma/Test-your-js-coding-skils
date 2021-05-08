@@ -44,7 +44,7 @@ var answer = document.querySelector ("#answer")
     // clear page function 
     var clearHtmlandStart = function () {
         mainContent.innerHTML = ""
-        //insert timer ability
+        //insert timer interval
         gettingStarted (initialIndex);
         };
 
@@ -83,8 +83,6 @@ var answer = document.querySelector ("#answer")
                 questionUl.appendChild(questionLi1);
                 questionUl.appendChild(questionLi2);
                 questionUl.appendChild(questionLi3);  
-                
-                debugger; 
 
                 questionUl.addEventListener("click", (answerCompare));
 
@@ -96,12 +94,7 @@ var answer = document.querySelector ("#answer")
             }
         }
 
-    //Compare and add answer 
-              // !!!!!!START HERE!!!!!!! 
-                //find a way to run timer and account for scores
-                // create imput after else to capture information and then
-                //develop store high scores
-
+    //Compare and add answer
         var answerCompare = function (event) {
             var compare = event.target;
             if (compare.matches("li")) {
@@ -114,23 +107,19 @@ var answer = document.querySelector ("#answer")
                     answer.textContent = "Wrong! The correct answer is:  " + questions[initialIndex].correctAnswer;
                 }
                 console.log(initialIndex)
-               initialIndex++
+                initialIndex++
                 gettingStarted (initialIndex);
-
-
-                //display answer
-             //ifarrayindex = 0 then display nothing
-            //otherwise display the previous result
             }
-
-             //if using indexarray aslong as it 
-             // idexArray < questions.length then idexArray++)
-            //go back to previous fuction and do it again
-            //else go to results 
 
         };
 
-    //time's up 
+// !!!!!!START HERE!!!!!!! 
+     //find a way to run timer and account for scores
+     // perhaps use if timer = 0 then run getting started with value =4
+     // create imput after else to capture information and then
+      //develop store high scores
+
+//time's up 
 
 //local storage of data
 
