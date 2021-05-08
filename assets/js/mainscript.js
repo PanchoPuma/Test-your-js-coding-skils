@@ -40,9 +40,9 @@ var answer = document.querySelector ("#answer")
 
 // variables as the quiz progresses
 
+var allFinalScores = []
+
 //functions
-
-
 
     // clear page function 
     var clearHtmlandStart = function () {
@@ -188,37 +188,42 @@ var answer = document.querySelector ("#answer")
 
 var SaveDetails = function () {
     resultsSubmit.addEventListener("click", function(){
-    window.alert("Testing");
-    }
+        //window.alert("Testing");
+        var saveInitials = resultsInput.value;
+        var finalResult = {
+            userInitials: saveInitials, 
+            finalSscore: score, }
+        if (saveInitials === "" ){
+            window.alert("Please enter your Initials");
+            SaveDetails();
+        debugger;
+        } else {
+            allFinalScores.push (finalResult);
+            var finalNewScore = JSON.stringify(allFinalScores)
+            localStorage.setItem ("Final Scores", finalNewScore )
+            window.location.replace("./highScores.html");
+            }
+            // if (saveInitials === null){
+            //     window.alert("Please enter your Initials");
+            //     debugger;
+            // } else {
+            //     var finalResult = {
+            //         userInitials: "",
+            //         finalSscore: score,
+            //     }
+            //     console.log (finalResult);
+            //     var allFinalScores = localStorage.getItem ("allFinalScores");
+            //     if (allFinalScores === null) {
+            //         allFinalScores =[];
+            //     } else {
+            //         allFinalScores = JSON.parse(allFinalScores);
+            //     }
+                allFinalScores.push (finalResult);
+                var finalNewScore = JSON.stringify(allFinalScores)
+                localStorage.setItem ("Final Scores", finalNewScore )
+            }
+   // }
     )}
-
-
-
-
-
-// var storeDetails = function (){
-//     var saveInitials = resultsInput.value;
-//     debugger;
-//         if (saveInitials === null){
-//             window.alert("Please enter your Initials");
-//             debugger;
-//         } else {
-//             // var finalResult = {
-//             //     userInitials: "",
-//             //     finalSscore: score,
-//             // }
-//             //console.log (finalResult);
-//             var allFinalScores = localStorage.getItem ("allFinalScores");
-//             if (allFinalScores === null) {
-//                 allFinalScores =[];
-//             } else {
-//                 allFinalScores = JSON.parse(allFinalScores);
-//             }
-//             allFinalScores.push (saveInitials);
-//             var finalNewScore = JSON.stringify(allFinalScores)
-//             localStorage.setItem ("Final Scores", finalNewScore )
-//         }
-//     }
 
 //general event listeners 
 start.addEventListener("click", clearHtmlandStart);
