@@ -193,36 +193,20 @@ var SaveDetails = function () {
         var finalResult = {
             userInitials: saveInitials, 
             finalSscore: score, }
+
         if (saveInitials === "" ){
             window.alert("Please enter your Initials");
             SaveDetails();
         debugger;
         } else {
             allFinalScores.push (finalResult);
+            //var existingScore = localStorage.getItem ("Final Scores", finalNewScore)
             var finalNewScore = JSON.stringify(allFinalScores)
             localStorage.setItem ("Final Scores", finalNewScore )
             window.location.replace("./highScores.html");
             }
-            // if (saveInitials === null){
-            //     window.alert("Please enter your Initials");
-            //     debugger;
-            // } else {
-            //     var finalResult = {
-            //         userInitials: "",
-            //         finalSscore: score,
-            //     }
-            //     console.log (finalResult);
-            //     var allFinalScores = localStorage.getItem ("allFinalScores");
-            //     if (allFinalScores === null) {
-            //         allFinalScores =[];
-            //     } else {
-            //         allFinalScores = JSON.parse(allFinalScores);
-            //     }
-                allFinalScores.push (finalResult);
-                var finalNewScore = JSON.stringify(allFinalScores)
-                localStorage.setItem ("Final Scores", finalNewScore )
-            }
-   // }
+        
+        }
     )}
 
 //general event listeners 
