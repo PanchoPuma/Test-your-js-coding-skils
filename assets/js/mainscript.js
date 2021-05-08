@@ -2,23 +2,23 @@
 var questions = [
     {   title: "Commonly used data types DO NOT include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
+        correctAnswer: "alerts"
     },
     {   title: "The condition in an if / else statement is enclosed within ____.",
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses"
+        correctAnswer: "parentheses"
     },
     {   title: "Arrays in Javascript can be used to store ____.",
         choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        answer: "all of the above"
+        correctAnswer: "all of the above"
     },
     {   title: "String values must be enclosed within ____ when being assigned to variables.",
         choices: ["commas", "curly brackets", "quotes", "parenthesis"],
-        answer: "quotes"
+        correctAnswer: "quotes"
     },
     {   title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
         choices: ["Javascript", "terminal / bash", "for loops", "console log"],
-        answer: "console log"
+        correctAnswer: "console log"
     },
 ];
 
@@ -26,6 +26,7 @@ var questions = [
 var score = 0
 var idexArray = 0
 var penalty = 10
+var pointsEarned = 10
 
 //inital document selectors 
 var questiondiv = document.querySelector("#question");
@@ -86,7 +87,9 @@ var answer = document.querySelector ("#answer")
                 
                 debugger; 
 
-                answerCompare ();
+                questionUl.addEventListener("click", (answerCompare));
+
+                //add next up function 
 
             }
         };
@@ -98,20 +101,33 @@ var answer = document.querySelector ("#answer")
                 //find a way to run timer 
                 //develop store high scores
 
-        var answerCompare = function () {
-            //answer.innerHTML = ""
-            // function compare(event) {
-             //var element = event.target;
-            //if (element.matches("li")) {
-            var questionAnswer = document.createElement ("div");
-            questionAnswer.id = "answer";
-            questionAnswer.innerHTML = "sample answer"
-            pagediv.appendChild(questionAnswer);
-            console.log(idexArray)
+        var answerCompare = function (event) {
+            //answer.innerHTML = """
+            var compare = event.target;
+            if (compare.matches("li")) {
+                var questionAnswer = document.createElement ("div");
+                questionAnswer.id = "answer"
 
-             //display answer
+                if (compare.textContent == questions[0].correctAnswer) {
+                    //score = score + pointsEarned;
+                    questionAnswer.textContent = "Correct! The answer is:  " + questions[0].correctAnswer;
+                } else {
+                    // Will deduct -10 seconds off time for wrong answers
+                    //timer = timer - penalty;
+                    questionAnswer.textContent = "Wrong! The correct answer is:  " + questions[0].correctAnswer;
+                }
+                pagediv.appendChild(questionAnswer);
+                console.log(idexArray)
+
+                //display answer
              //ifarrayindex = 0 then display nothing
             //otherwise display the previous result
+            }
+
+             //if using indexarray aslong as it 
+             // idexArray < questions.length then idexArray++)
+            //go back to previous fuction and do it again
+            //else go to results 
 
         };
 
@@ -122,6 +138,12 @@ var answer = document.querySelector ("#answer")
 
 //event listeners 
 start.addEventListener("click", clearHtmlandStart);
+
+
+
+
+
+
 
 
 
@@ -166,3 +188,13 @@ start.addEventListener("click", clearHtmlandStart);
             // console.log(idexArray)
 
             // };
+
+            // var answerCompare = function (event) {
+            //     //answer.innerHTML = """
+            //     var compare = event.target;
+            //     if (compare.matches("li")) {
+            //         var questionAnswer = document.createElement ("div");
+            //         questionAnswer.id = "answer";
+            //         questionAnswer.innerHTML = "sample answer"
+            //         pagediv.appendChild(questionAnswer);
+            //         console.log(idexArray)
