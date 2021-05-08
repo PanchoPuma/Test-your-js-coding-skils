@@ -45,3 +45,7 @@ var timer = document.querySelector("#timer");
 
 //local storage of data
 
+
+start.addEventListener("click", function () {
+    pagediv.innerHTML = ""
+});
