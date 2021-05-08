@@ -41,12 +41,13 @@ var timer = document.querySelector("#timer");
     //get started and circle through questions
 
     var gettingStarted = function () {
-                
+
+        for (var i = 0; i < questions.length; i++) {
         var questionTitle = document.createElement ("div");
         questionTitle.id = "question";
-        questionTitle.innerHTML = "<h1 class='center'> something</h1>"
-        pagediv.appendChild(questionTitle);
-
+        questionTitle.innerHTML = "<h1 class='center'>" + questions[i].title + "</h1>";
+        pagediv.appendChild(questionTitle);   
+        }
     };
 
     //compare answers
@@ -64,3 +65,13 @@ var timer = document.querySelector("#timer");
 
 //event listeners 
 start.addEventListener("click", clearHtml);
+
+
+
+//// tests draft 
+
+// get started function
+// var questionTitle = document.createElement ("div");
+        // questionTitle.id = "question";
+        // questionTitle.innerHTML = "<h1 class='center'> something</h1>"
+        // pagediv.appendChild(questionTitle);
