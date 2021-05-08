@@ -50,13 +50,6 @@ var timer = document.querySelector("#timer");
 
 //local storage of data
 
-// var clearHtml = function () {
-//     start.addEventListener("click", function () {
-//         pagediv.innerHTML = ""
-//     }) 
-// }
-// clearHtml();
 
-
-    //event listeners 
+//event listeners 
 start.addEventListener("click", clearHtml);
