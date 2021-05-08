@@ -27,6 +27,7 @@ var score = 0
 var initialIndex = 0
 var penalty = 10
 var pointsEarned = 10
+var time = 60
 
 //inital document selectors 
 var questiondiv = document.querySelector("#question");
@@ -41,10 +42,11 @@ var answer = document.querySelector ("#answer")
 
 //functions
 
+
+
     // clear page function 
     var clearHtmlandStart = function () {
         mainContent.innerHTML = ""
-        //insert timer interval
         gettingStarted (initialIndex);
         };
 
@@ -119,15 +121,25 @@ var answer = document.querySelector ("#answer")
      // create imput after else to capture information and then
       //develop store high scores
 
-//time's up 
+//timer 
+
+var startTimer = function(){
+    setInterval (function () {
+        if (time >= 1) {
+        time = time -1
+        console.log (time)
+        } else {
+            if (time <= 0)
+             clearInterval(startTimer)
+        }
+    }, 1000)};
 
 //local storage of data
 
 
 //event listeners 
 start.addEventListener("click", clearHtmlandStart);
-
-
+start.addEventListener("click", startTimer);
 
 
 
