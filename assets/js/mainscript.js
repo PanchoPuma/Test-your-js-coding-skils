@@ -89,12 +89,9 @@ var answer = document.querySelector ("#answer")
                 questionUl.addEventListener("click", (answerCompare));
             }
             else {
-                mainContent.innerHTML = ""
-                answer.textContent = "the end"
-                var currentTime = time
-                displayTimer.textContent = "Timer: " + currentTime 
-                clearInterval(startTimer)
-                //time = 0
+                clearInterval(startTimer);
+                displayTimer.textContent = "Timer: Stopped"
+                results ();
             }
         }
 
@@ -119,31 +116,42 @@ var answer = document.querySelector ("#answer")
         };
 
 // !!!!!!START HERE!!!!!!! 
-     //find a way to run timer 
-     //and account for scores
+     //find a way to account for scores
      // perhaps use if timer = 0 then run getting started with value =4
      // create imput after else to capture information and then
       //develop store high scores
 
-//timer 
+    //timer 
 
-var startTimer = function(){
-    setInterval (function () {
-        if (initialIndex >=5) {
-            clearInterval(startTimer);
-            displayTimer.textContent = "Time's up!"
-            //display current stop time instead of time's up
+    var startTimer = function(){
+        setInterval (function () {
+            if (initialIndex >=5) {
+                clearInterval(startTimer);
+                displayTimer.textContent = "Timer: Stopped"
+                //improvement: display current stop time instead of time's up
+
+        } else if (time >= 1) {
+            time = time -1
+            //console.log (time)
+            displayTimer.textContent = "Timer: " + time
+            } else if (time <= 0) {
+                displayTimer.textContent = "Time's up!"
+                clearInterval(startTimer);
+                results ();
+            }
+        }, 1000)};
 
 
-    } else if (time >= 1) {
-        time = time -1
-        //console.log (time)
-        displayTimer.textContent = "Timer: " + time
-        } else if (time <= 0) {
-             displayTimer.textContent = "Timer: " + 0
-             clearInterval(startTimer);
-        }
-    }, 1000)};
+    // Results Page
+
+    var results = function () {
+        mainContent.innerHTML = ""
+                var allDone = document.createElement ("div");
+                allDone.id = "question";
+                allDone.innerHTML = "<h1 class='center'> All Done! </h1>" 
+                mainContent.appendChild(allDone);
+                answer.textContent = "Your final Score is: " + score
+    }
 
 //local storage of data
 
