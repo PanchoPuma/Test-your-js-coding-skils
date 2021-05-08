@@ -37,6 +37,11 @@ var timer = document.querySelector("#timer");
 // variables as the quiz progresses
 
 //functions
+
+    // clear page function 
+    var clearHtml = function () {
+        pagediv.innerHTML = ""
+        }
     //get started and circle through questions
 
     //compare answers
@@ -45,7 +50,13 @@ var timer = document.querySelector("#timer");
 
 //local storage of data
 
+// var clearHtml = function () {
+//     start.addEventListener("click", function () {
+//         pagediv.innerHTML = ""
+//     }) 
+// }
+// clearHtml();
 
-start.addEventListener("click", function () {
-    pagediv.innerHTML = ""
-});
+
+    //event listeners 
+start.addEventListener("click", clearHtml);
