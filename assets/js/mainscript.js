@@ -45,36 +45,36 @@ var answer = document.querySelector ("#answer")
     var clearHtmlandStart = function () {
         mainContent.innerHTML = ""
         //insert timer ability
-        gettingStarted ();
+        gettingStarted (initialIndex);
         };
 
     //get started and circle through questions
 
     var gettingStarted = function (initialIndex) {
-        var idexArray = 0
+       
             //clear previous html
             mainContent.innerHTML = ""
             //adding content
                 //add title
                 var questionTitle = document.createElement ("div");
                 questionTitle.id = "question";
-                questionTitle.innerHTML = "<h1 class='center'>" + questions[idexArray].title+ "</h1>" 
+                questionTitle.innerHTML = "<h1 class='center'>" + questions[initialIndex].title+ "</h1>" 
                 // add ul
                 debugger;
                 var questionUl = document.createElement ("ul");
                 //add li elements
                 var questionLi0 = document.createElement ("li");
                 questionLi0.id = "0";
-                questionLi0.textContent = questions[idexArray].choices[0]
+                questionLi0.textContent = questions[initialIndex].choices[0]
                 var questionLi1 = document.createElement ("li");
                 questionLi1.id = "1";
-                questionLi1.textContent = questions[idexArray].choices[1]
+                questionLi1.textContent = questions[initialIndex].choices[1]
                 var questionLi2 = document.createElement ("li");
                 questionLi2.id = "2";
-                questionLi2.textContent = questions[idexArray].choices[2]
+                questionLi2.textContent = questions[initialIndex].choices[2]
                 var questionLi3 = document.createElement ("li");
                 questionLi3.id = "3";
-                questionLi3.textContent = questions[idexArray].choices[3]
+                questionLi3.textContent = questions[initialIndex].choices[3]
             
                 //append results
                // mainContent.appendChild(pagediv);
@@ -103,13 +103,7 @@ var answer = document.querySelector ("#answer")
 
         var answerCompare = function (event) {
             var compare = event.target;
-            // var questionAnswer = document.createElement ("div");
-            //     questionAnswer.id = "answer"
             if (compare.matches("li")) {
-                // var questionAnswer = document.createElement ("div");
-                // questionAnswer.id = "answer"
-                // questionAnswer.innerHTML = ""
-
                 if (compare.textContent == questions[initialIndex].correctAnswer) {
                     //score = score + pointsEarned;
                     answer.textContent = "Correct! The answer is:  " + questions[initialIndex].correctAnswer;
@@ -118,9 +112,8 @@ var answer = document.querySelector ("#answer")
                     //timer = timer - penalty;
                     answer.textContent = "Wrong! The correct answer is:  " + questions[initialIndex].correctAnswer;
                 }
-                //pagediv.appendChild(questionAnswer);
                 console.log(initialIndex)
-                //initialIndex++
+                initialIndex++
                 gettingStarted (initialIndex);
 
 
