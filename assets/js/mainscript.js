@@ -1,24 +1,24 @@
-// arrays with list of questions and answer
+// arrays with list of questions and correct answer
 var questions = [
     {   title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        correctAnswer: "alerts"
+        choices: ["Alerts", "Strings", "Numbers", "Booleans"],
+        correctAnswer: "Alerts"
     },
-    {   title: "The condition in an if / else statement is enclosed within ____.",
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        correctAnswer: "parentheses"
+    {   title: "The condition in an if / else statement is enclosed within ____________.",
+        choices: ["Curly brackets", "Quotes","Parentheses", "Square brackets"],
+        correctAnswer: "Parentheses"
     },
-    {   title: "Arrays in Javascript can be used to store ____.",
-        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        correctAnswer: "all of the above"
+    {   title: "Arrays in Javascript can be used to store _____________.",
+        choices: ["Booleans", "Numbers and strings", "Other arrays", "All of the above"],
+        correctAnswer: "All of the above"
     },
-    {   title: "String values must be enclosed within ____ when being assigned to variables.",
-        choices: ["commas", "curly brackets", "quotes", "parenthesis"],
-        correctAnswer: "quotes"
+    {   title: "String values must be enclosed within _______________ when being assigned to variables.",
+        choices: ["Quotes", "Commas", "Curly brackets", "Parenthesis"],
+        correctAnswer: "Quotes"
     },
     {   title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
-        choices: ["Javascript", "terminal / bash", "for loops", "console log"],
-        correctAnswer: "console log"
+        choices: ["Javascript", "Terminal / bash", "console.log", "for loops"],
+        correctAnswer: "console.log"
     },
 ];
 
@@ -29,6 +29,7 @@ var penalty = 10
 var pointsEarned = 10
 var time = 60
 var resultsIndex = 0
+var totalFinalScores = []
 
 
 //inital document selectors 
@@ -39,10 +40,6 @@ var start = document.querySelector("#btn");
 var displayTimer = document.querySelector("#timer");
 var mainContent = document.querySelector ("#main-content")
 var answer = document.querySelector ("#answer")
-
-// variables as the quiz progresses
-
-var allFinalScores = []
 
 //functions
 
@@ -58,7 +55,6 @@ var allFinalScores = []
        if (initialIndex <= 4 ) {
             //clear previous html
             mainContent.innerHTML = ""
-            //adding content
                 //add title
                 var questionTitle = document.createElement ("div");
                 questionTitle.id = "question";
@@ -111,11 +107,10 @@ var allFinalScores = []
                     time = time - penalty;
                     answer.textContent = "Wrong! The right answer is:  " + questions[initialIndex].correctAnswer;
                 }
-                //console.log(initialIndex)
+                console.log(initialIndex)
                 initialIndex++
                 gettingStarted (initialIndex);
             }
-
         };
 
     //timer 
@@ -125,11 +120,9 @@ var allFinalScores = []
             if (initialIndex >=5) {
                 clearInterval(startTimer);
                 displayTimer.textContent = "Timer: Stopped"
-                //improvement: display current stop time instead of time's up
-
         } else if (time >= 1) {
             time = time -1
-            //console.log (time)
+            console.log (time)
             displayTimer.textContent = "Timer: " + time
             } else if (time <= 0) {
                 time = 0.5
@@ -156,14 +149,14 @@ var allFinalScores = []
         resultsLabel.id = "resultsLabel";
         resultsLabel.textContent = "Enter your initials: ";
 
-        // input 
+        // Results input 
 
         var resultsInput = document.createElement("input");
         resultsInput.id = "resultsInput";
         resultsInput.setAttribute ("type", "Text")
         resultsInput.textContent = " ";
 
-        //submit
+        // Results submit
 
         var resultsSubmit = document.createElement("button");
         resultsSubmit.id = "resultsSubmit";
@@ -177,14 +170,7 @@ var allFinalScores = []
         pagediv.appendChild(resultsSubmit);
 
         SaveDetails ();
-
     }
-
-
-
-    // !!!!!!START HERE!!!!!!! 
-     // store input values correctly and once submited 
-      //go to store high scores. html
 
 //local storage of data
 
@@ -202,16 +188,15 @@ var SaveDetails = function () {
            var existing = localStorage.getItem ("Final Score");
            console.log (existing)
            if (existing === null) {
-            allFinalScores = [];
+            totalFinalScores = [];
             } else {
-            allFinalScores = JSON.parse(existing);
+            totalFinalScores = JSON.parse(existing);
             }
            //debugger;
-            allFinalScores.push (finalResult);
-            localStorage.setItem ("Final Score", JSON.stringify(allFinalScores))
+           totalFinalScores.push (finalResult);
+            localStorage.setItem ("Final Score", JSON.stringify(totalFinalScores))
             window.location.replace("./highScores.html");  
             }
-        
         }
     )}
 
