@@ -19,15 +19,15 @@ goback.addEventListener("click", function () {
 
 //displayResults
 
-var storedResults = localStorage.getItem("Final Score");
-storedResultsDisplay = JSON.parse(storedResults);
+var storedResultsDisplay = localStorage.getItem("Final Score");
+storedResultsDisplay = JSON.parse(storedResultsDisplay);
 
 console.log(storedResultsDisplay)
 //debugger
 
 if (storedResultsDisplay !== null) {
 
-    for (var i = 0; i < storedResults.length; i++) {
+    for (var i = 0; i < storedResultsDisplay.length; i++) {
 
         var li = document.createElement("li");
         li.textContent = (storedResultsDisplay[i].userInitials) + " " + storedResultsDisplay[i].finalScore;
