@@ -9,10 +9,10 @@ This is also a timed quiz. The timer starts at 60 seconds an the time also decre
 
 ## Screenshots
 
-![Welcome Page](/assets/images/welcomePage.jpeg)
-![Sample Question](/assets/images/sampleQuestion.jpeg)
-![Input](/assets/images/input.jpeg)
-![High Scores](/assets/images/highScores.jpeg)
+![Welcome Page](/assets/images/welcomePage.jpeg) - Welcome Page
+![Sample Question](/assets/images/sampleQuestion.jpeg) - Sample Question
+![Input](/assets/images/input.jpeg) - Input
+![High Scores](/assets/images/highScores.jpeg) - High Scores
 
 ## Link to deployed application
 
