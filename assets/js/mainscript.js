@@ -192,17 +192,15 @@ var SaveDetails = function () {
         var saveInitials = resultsInput.value;
         var finalResult = {
             userInitials: saveInitials, 
-            finalSscore: score, }
+            finalScore: score, }
 
         if (saveInitials === "" ){
             window.alert("Please enter your Initials");
-            SaveDetails();
         debugger;
         } else {
+
             allFinalScores.push (finalResult);
-            //var existingScore = localStorage.getItem ("Final Scores", finalNewScore)
-            var finalNewScore = JSON.stringify(allFinalScores)
-            localStorage.setItem ("Final Scores", finalNewScore )
+            localStorage.setItem ("Final Scores", JSON.stringify(allFinalScores) )
             window.location.replace("./highScores.html");
             }
         
