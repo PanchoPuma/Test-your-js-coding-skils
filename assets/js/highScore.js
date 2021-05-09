@@ -1,19 +1,20 @@
+// Variables selectors
 var questiondiv = document.querySelector("#question");
 var pagediv = document.querySelector("#page-content");
 var clear = document.querySelector("#btn-clear");
-var goback = document.querySelector("#btn-goback");
+var restart = document.querySelector("#btn-restart");
 var mainContent = document.querySelector ("#main-content")
 var olist = document.querySelector ("#ol")
 
-//clear local storage 
+//clear local storage and thus the page
 clear.addEventListener("click", function () {
     localStorage.clear();
     olist.innerHTML = ""
 });
 
-//go back
+//restart quiz
 
-goback.addEventListener("click", function () {
+restart.addEventListener("click", function () {
     window.location.replace("./index.html");
 });
 
