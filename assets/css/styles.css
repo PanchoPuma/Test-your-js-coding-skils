@@ -88,7 +88,7 @@ p {
     margin-bottom: 20px;
 }
 
-#btn {
+#btn, #btn-clear, #btn-goback {
     width: 200px;
     background-color: purple;
     padding: 15px 5px;
