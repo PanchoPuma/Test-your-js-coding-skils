@@ -105,11 +105,11 @@ var allFinalScores = []
                 if (compare.textContent == questions[initialIndex].correctAnswer) {
                     score = score + pointsEarned;
                     console.log (score)
-                    answer.textContent = "Correct! The answer is:  " + questions[initialIndex].correctAnswer;
+                    answer.textContent = "You are Correct!"
                 } else {
                     // Will deduct -10 seconds off time for wrong answers
                     time = time - penalty;
-                    answer.textContent = "Wrong! The correct answer is:  " + questions[initialIndex].correctAnswer;
+                    answer.textContent = "Wrong! The right answer is:  " + questions[initialIndex].correctAnswer;
                 }
                 //console.log(initialIndex)
                 initialIndex++
@@ -132,14 +132,15 @@ var allFinalScores = []
             //console.log (time)
             displayTimer.textContent = "Timer: " + time
             } else if (time <= 0) {
+                time = 0.5
                 displayTimer.textContent = "Time's up!"
                 clearInterval(startTimer);
-                results ();
+                results();
             }
         }, 1000)};
 
 
-    // Results Page
+    // Main Results Page
 
     var results = function () {
         mainContent.innerHTML = ""
@@ -179,6 +180,8 @@ var allFinalScores = []
 
     }
 
+
+
     // !!!!!!START HERE!!!!!!! 
      // store input values correctly and once submited 
       //go to store high scores. html
@@ -192,7 +195,6 @@ var SaveDetails = function () {
         var finalResult = {
             userInitials: saveInitials, 
             finalScore: score, }
-
         if (saveInitials === "" ){
             window.alert("Please enter your Initials");
         //debugger;

@@ -46,7 +46,22 @@ li {
     font-size: 30px;
 }
 
-#resultsInput, #resultsLabel {
+h1 {
+    font-size: 50px;
+}
+
+ #resultsLabel {
+    margin: 15px auto;
+    padding: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+#resultsInput {
     margin: 15px auto;
     padding: 0px 0px;
     display: flex;
@@ -68,14 +83,12 @@ li {
 }
 
 p {
-    padding: 0px 30px;
+    padding: 20px 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 40px;
-}
-
-#btn, #resultsSubmit  {
+#btn {
     width: 200px;
     background-color: purple;
     padding: 15px 5px;
@@ -84,7 +97,20 @@ h1 {
     margin: 0px auto;
     text-align: center;
 
+}
 
+#resultsSubmit {
+    width: 200px;
+    background-color: purple;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 70px;
+    padding-right: 0px;
+    font-size: 20px;
+    color: white;
+    margin: 0px auto;
+    text-align: center;
+    display: flex;
 }
 
 /* css for js */
