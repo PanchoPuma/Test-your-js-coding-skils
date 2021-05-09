@@ -16,13 +16,47 @@
     padding: 20px 30px;
 }
 
-#page-content, #start {
-    margin: 0px auto;
+#main-content {
+    margin: 15px auto;
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
 }
+
+li {
+    width: 200px;
+    background-color: purple;
+    padding: 15px 5px;
+    font-size: 20px;
+    color: white;
+    margin: 10px auto;
+ 
+
+}
+#answer {
+    margin: 15px auto;
+    padding: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+}
+
+#resultsInput, #resultsLabel {
+    margin: 15px auto;
+    padding: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
 .left {
     text-align: left;
     margin: 10px auto;
@@ -38,16 +72,18 @@ p {
 }
 
 h1 {
-    font-size: 38px;
+    font-size: 40px;
 }
 
-#btn, #resultsSubmit {
+#btn, #resultsSubmit  {
     width: 200px;
-    justify-content: center;
     background-color: purple;
     padding: 15px 5px;
     font-size: 20px;
     color: white;
+    margin: 0px auto;
+    text-align: center;
+
 
 }
 

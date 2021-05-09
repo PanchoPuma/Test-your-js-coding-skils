@@ -28,6 +28,8 @@ var initialIndex = 0
 var penalty = 10
 var pointsEarned = 10
 var time = 60
+var resultsIndex = 0
+
 
 //inital document selectors 
 var questiondiv = document.querySelector("#question");
@@ -62,7 +64,8 @@ var allFinalScores = []
                 questionTitle.id = "question";
                 questionTitle.innerHTML = "<h1 class='center'>" + questions[initialIndex].title+ "</h1>" 
                 // add ul
-                var questionUl = document.createElement ("ul");
+                var questionOl = document.createElement ("ol");
+                questionOl.id = "olist"
                 //add li elements
                 var questionLi0 = document.createElement ("li");
                 questionLi0.id = "0";
@@ -80,13 +83,13 @@ var allFinalScores = []
                 //append results
                // mainContent.appendChild(pagediv);
                 mainContent.appendChild(questionTitle);  
-                questionTitle.appendChild(questionUl);
-                questionUl.appendChild(questionLi0);  
-                questionUl.appendChild(questionLi1);
-                questionUl.appendChild(questionLi2);
-                questionUl.appendChild(questionLi3);  
+                questionTitle.appendChild(questionOl);
+                questionOl.appendChild(questionLi0);  
+                questionOl.appendChild(questionLi1);
+                questionOl.appendChild(questionLi2);
+                questionOl.appendChild(questionLi3);  
 
-                questionUl.addEventListener("click", (answerCompare));
+                questionOl.addEventListener("click", (answerCompare));
             }
             else {
                 clearInterval(startTimer);
@@ -174,10 +177,6 @@ var allFinalScores = []
 
         SaveDetails ();
 
-      
-
-       // resultsSubmit.addEventListener("click", SaveDetails ());
-        //resultsSubmit.addEventListener("click", storeDetails ());
     }
 
     // !!!!!!START HERE!!!!!!! 
@@ -196,12 +195,19 @@ var SaveDetails = function () {
 
         if (saveInitials === "" ){
             window.alert("Please enter your Initials");
-        debugger;
+        //debugger;
         } else {
-
+           var existing = localStorage.getItem ("Final Score");
+           console.log (existing)
+           if (existing === null) {
+            allFinalScores = [];
+            } else {
+            allFinalScores = JSON.parse(existing);
+            }
+           //debugger;
             allFinalScores.push (finalResult);
-            localStorage.setItem ("Final Scores", JSON.stringify(allFinalScores) )
-            window.location.replace("./highScores.html");
+            localStorage.setItem ("Final Score", JSON.stringify(allFinalScores))
+            window.location.replace("./highScores.html");  
             }
         
         }
@@ -210,85 +216,3 @@ var SaveDetails = function () {
 //general event listeners 
 start.addEventListener("click", clearHtmlandStart);
 start.addEventListener("click", startTimer);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//// tests draft 
-
-// if (initialIndex <= 3){
-//     initialIndex++
-// }else if (initialIndex >= 4) {
-// break
-// console.log ("pausing")
-// }
-
-// FIRST ANSWER COMPARE  var answerCompare = function () {
-            // var questionAnswer = document.createElement ("div");
-            // questionAnswer.id = "answer";
-            // questionAnswer.innerHTML = "sample answer"
-            // pagediv.appendChild(questionAnswer);
-            // console.log(idexArray)
-
-            // };
-
-
-
-
-
-//initial fuction
-            // var gettingStarted = function () {
-
-            //     for (idexArray; idexArray < questions.length; idexArray++) {
-            //         //clear previous html
-            //         mainContent.innerHTML = ""
-            //         //adding content
-            //             //add title
-            //             var questionTitle = document.createElement ("div");
-            //             questionTitle.id = "question";
-            //             questionTitle.innerHTML = "<h1 class='center'>" + questions[idexArray].title + "</h1>" 
-            //             // add ul
-            //             var questionUl = document.createElement ("ul");
-            //             //add li elements
-            //             var questionLi0 = document.createElement ("li");
-            //             questionLi0.id = "0";
-            //             questionLi0.textContent = questions[idexArray].choices[0]
-            //             var questionLi1 = document.createElement ("li");
-            //             questionLi1.id = "1";
-            //             questionLi1.textContent = questions[idexArray].choices[1]
-            //             var questionLi2 = document.createElement ("li");
-            //             questionLi2.id = "2";
-            //             questionLi2.textContent = questions[idexArray].choices[2]
-            //             var questionLi3 = document.createElement ("li");
-            //             questionLi3.id = "3";
-            //             questionLi3.textContent = questions[idexArray].choices[3]
-                    
-            //             //append results
-            //            // mainContent.appendChild(pagediv);
-            //             mainContent.appendChild(questionTitle);  
-            //             questionTitle.appendChild(questionUl);
-            //             questionUl.appendChild(questionLi0);  
-            //             questionUl.appendChild(questionLi1);
-            //             questionUl.appendChild(questionLi2);
-            //             questionUl.appendChild(questionLi3);  
-                        
-            //             debugger; 
-        
-            //             questionUl.addEventListener("click", (answerCompare));
-        
-            //             //add next up function 
