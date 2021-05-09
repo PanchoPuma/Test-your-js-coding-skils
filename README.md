@@ -3,7 +3,9 @@
 
 ## Description
 
-This repository contains a password generator (between 8-128 characters); which is designed to include lowercase, uppercase, numeric, and/or special characters based on the user's preference.
+This repository contains a quiz that is designed to test your knowledge of JavaScript. The scores are stored in the browser to be viewed later or to clear them if needed. The scores increase by 10 when asnwering correctly. 
+
+This is also a timed quiz. The timer starts at 60 seconds an the time also decreses by 10 seconds due to incorrect answers. 
 
 ## Screenshots
 
@@ -14,4 +16,4 @@ This repository contains a password generator (between 8-128 characters); which 
 
 ## Link to deployed application
 
-[Test-your-js-coding-skils] (https://panchopuma.github.io/Password-Generator/)  
+[Test-your-js-coding-skils] (https://panchopuma.github.io/Test-your-js-coding-skils/)  
