@@ -26,7 +26,7 @@ storedResultsDisplay = JSON.parse(storedResultsDisplay);
 console.log(storedResultsDisplay)
 //debugger
 
-if (storedResultsDisplay !== null) {
+if (storedResultsDisplay != null) {
 
     for (var i = 0; i < storedResultsDisplay.length; i++) {
 
